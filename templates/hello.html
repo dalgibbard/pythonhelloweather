@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<title>Weather details in your location!</title>
+<html>
+  <body>
+    <dl>
+    {% for key,value in weatherdata.iteritems() %}
+      <dt>{{ key|e }}</dt>
+    <dd>{{ value|e }}</dd>
+  {% endfor %}
+  </dl>
+  </body>
+</html>
