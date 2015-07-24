@@ -29,4 +29,4 @@ def helloweather():
     return render_template('hello.html',weatherdata=dictweatherdata)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0",port=5555)
