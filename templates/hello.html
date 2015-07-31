@@ -13,6 +13,7 @@
 <html>
   <body>
     <div class="container">
+      <h2>I am running on {{hostname}}</h2>
     <dl>
     {% for key,value in weatherdata.iteritems() %}
     <dt>{{ key|e }}</dt>

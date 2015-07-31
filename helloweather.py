@@ -3,6 +3,8 @@ import urllib2
 import json
 from flask import Flask,render_template
 import pdb
+import platform
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -26,7 +28,7 @@ def helloweather():
         dictweatherdata = json.loads(weatherdata.read())
     except:
         print "Couldn't retrieve weather in your area :("
-    return render_template('hello.html',weatherdata=dictweatherdata)
+    return render_template('hello.html',weatherdata=dictweatherdata,hostname=platform.node())
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port=5555)
