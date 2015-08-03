@@ -14,12 +14,26 @@
   <body>
     <div class="container">
       <h2>I am running on {{hostname}}</h2>
-    <dl>
-    {% for key,value in weatherdata.iteritems() %}
-    <dt>{{ key|e }}</dt>
-    <dd>{{ value|e }}</dd>
+    <table class="table table-stripped">
+    {% for key,value in weatherdata.items() recursive%}
+    <tr>
+    <td>{{ key|e }}</td>
+    <td>
+      {%- if value is mapping %}
+        {# At some point, display json as nested table #}
+        {# <table class="table table-stripped"> #}
+        {# <tr> #}
+        {#   <td>{{ loop(value.items()) }}<td> #}
+        {# </tr> #}
+        {# </table> #}
+        {{value|e}} 
+      {%- else %}
+        {{value|e}}
+      {%- endif %}
+    </td>
+    </tr>
   {% endfor %}
-    </dl>
+    </table>
     </div>
   </body>
 </html>
